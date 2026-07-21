@@ -15,144 +15,16 @@
         </button>
     </div>
 </section>
+<div class = "container">
 
-<!-- ✅ HERO CAROUSEL -->
-<div class="max-w-6xl mx-auto mt-8 px-4">
-    <div id="default-carousel" class="relative w-full" data-carousel="slide">
-        <div class="relative h-64 md:h-96 overflow-hidden rounded-2xl">
-            <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/static/iceCream2.jpg" class="absolute block w-full h-full object-cover" alt="Ice Cream">
-            </div>
-            <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1200&q=80" 
-                     class="absolute block w-full h-full object-cover" alt="Ice Cream">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1200&q=80" 
-                     class="absolute block w-full h-full object-cover" alt="Ice Cream">
-            </div>
-
-            <!-- Prev Button -->
-            <button type="button" 
-                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" 
-                    data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/40 group-hover:bg-white/60 focus:ring-4 focus:ring-white">
-                    <svg class="w-5 h-5 text-gray-800" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5m0 0 4 4"/>
-                    </svg>
-                </span>
-            </button>
-
-            <!-- Next Button -->
-            <button type="button" 
-                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" 
-                    data-carousel-next>
-                <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/40 group-hover:bg-white/60 focus:ring-4 focus:ring-white">
-                    <svg class="w-5 h-5 text-gray-800" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4m0 0L1 1"/>
-                    </svg>
-                </span>
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ✅ FEATURED FLAVORS SECTION -->
-<section class="max-w-6xl mx-auto py-20 px-4">
-    <h2 class="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12">Our Best Flavors 🍦</h2>
+    {% for chai in chais %}
+    <h3>{{chai.name}}</h3>
+    <a href="{%url 'chai_detail' chai.id%}">
+        <button>
+            {{chai.type}}
+        </button>
+    </a>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Vanilla -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105">
-            <div class="bg-gradient-to-r from-yellow-200 to-yellow-100 h-40 flex items-center justify-center text-6xl">
-                🍦
-            </div>
-            <div class="p-6">
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">Classic Vanilla</h3>
-                <p class="text-gray-600 mb-4">Purana, Sada aur Sona mazaa jo sab ko pasand aaye</p>
-                <button class="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 rounded-lg transition">
-                    Try Now
-                </button>
-            </div>
-        </div>
-
-        <!-- Chocolate -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105">
-            <div class="bg-gradient-to-r from-amber-700 to-amber-600 h-40 flex items-center justify-center text-6xl">
-                🍫
-            </div>
-            <div class="p-6">
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">Choco Blast</h3>
-                <p class="text-gray-600 mb-4">Dark, rich aur bohot mazay dar chocolate flavor</p>
-                <button class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 rounded-lg transition">
-                    Try Now
-                </button>
-            </div>
-        </div>
-
-        <!-- Berry -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105">
-            <div class="bg-gradient-to-r from-red-300 to-pink-300 h-40 flex items-center justify-center text-6xl">
-                🍓
-            </div>
-            <div class="p-6">
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">Berry Swirl</h3>
-                <p class="text-gray-600 mb-4">Fresh, fruity aur bilkul natural taste</p>
-                <button class="w-full bg-red-400 hover:bg-red-500 text-white font-bold py-2 rounded-lg transition">
-                    Try Now
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ✅ WHY CHOOSE US -->
-<section class="bg-gradient-to-r from-blue-50 to-purple-50 py-20 px-4">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Hum Kyun Best Hain? 🏆</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="text-center">
-                <div class="text-5xl mb-4">🥶</div>
-                <h3 class="font-bold text-lg mb-2">Fresh & Cold</h3>
-                <p class="text-gray-600">Har din fresh banaya hota hai</p>
-            </div>
-            <div class="text-center">
-                <div class="text-5xl mb-4">✨</div>
-                <h3 class="font-bold text-lg mb-2">Premium Quality</h3>
-                <p class="text-gray-600">Sirf best ingredients use karte hain</p>
-            </div>
-            <div class="text-center">
-                <div class="text-5xl mb-4">🚚</div>
-                <h3 class="font-bold text-lg mb-2">Fast Delivery</h3>
-                <p class="text-gray-600">30 minutes mein doorstep par</p>
-            </div>
-            <div class="text-center">
-                <div class="text-5xl mb-4">💰</div>
-                <h3 class="font-bold text-lg mb-2">Best Price</h3>
-                <p class="text-gray-600">Bilkul affordable rates</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ✅ CTA SECTION -->
-<section class="bg-gradient-to-r from-pink-600 to-purple-600 text-white py-16 px-4">
-    <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-4">Abhi Order Karo! 🛒</h2>
-        <p class="text-xl mb-8">Apna Pasandida Flavor Select Karo aur Enjoy Karo</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button class="bg-white text-pink-600 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition text-lg">
-                Order Online
-            </button>
-            <button class="bg-pink-700 text-white font-bold px-8 py-4 rounded-lg hover:bg-pink-800 transition text-lg border-2 border-white">
-                Call: +92-XXX-XXXX
-            </button>
-        </div>
-    </div>
-</section>
-
+    {% endfor %}
+</div>
 {% endblock %}

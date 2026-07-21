@@ -8,7 +8,9 @@ urlpatterns = [
     path("",views.index,name='home'),
     path("about",views.about,name='about'),
     path("services",views.services,name='services'),
-    path("contact",views.contact,name='contact'),
+    path("<int:chai_id>/",views.chai_detail,name='chai_detail'),
+
+    # path("contact",views.contact,name='contact'),
 
 
 ]
