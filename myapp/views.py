@@ -1,8 +1,9 @@
 from django.shortcuts import render,HttpResponse
-from myapp.models import ChaiVariety
+from myapp.models import ChaiVariety,Store
 from datetime import datetime
 from django.contrib.messages import constants as messages
 from django.shortcuts import get_object_or_404
+from .forms import ChaiVarietyForm
 
 def index(request):
     chais = ChaiVariety.objects.all()
@@ -19,19 +20,23 @@ def chai_detail(request,chai_id):
 def services(request):
     return render(request , 'services.html')
     # return HttpResponse("This is services page ")
+def contact(request):
+   return render(request,'contact.html')
 
-# def contact(request):
-#     if request.method == "POST":
-#         name = request.POST.get('name')
-#         email = request.POST.get('email')
-#         subject = request.POST.get('subject')
-#         message = request.POST.get('message')
-#         contact = Contact(name = name , email = email ,subject = subject , message = message , date = datetime.today())
-#         contact.save()
+def chai_view_store(request):
+    stores = None
+    if request.method == "POST":
+        form = ChaiVarietyForm(request.POST)
+        if form.is_valid():
+            chai_varity = form.cleaned_data['chai_variety']
+            stores = Store.objects.filter(chai_varietes = chai_varity)
+            print("Stores found ",stores)
+ 
+    else:
+            form = ChaiVarietyForm()
+    return render(request,'Contact.html',{'stores':stores ,'form' : form})
 
-
-    # return render(request,'contact.html')
-    # return HttpResponse("This is contact page ")
-
+        
+    
 
 # Create your views here.
